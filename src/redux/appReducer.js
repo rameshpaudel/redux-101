@@ -30,7 +30,7 @@ export default function appReducer(state = initialState, payload) {
             break;
 
         default:
-            return initialState;
+            return state;
             break;
     }
 };

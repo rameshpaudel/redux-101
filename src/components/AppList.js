@@ -12,9 +12,8 @@ class AppList extends Component{
         super(props)
     }
     componentDidMount(){
-        setTimeout(()=>{
+        
             this.props.load()
-        },5000)
     }
     handleClick= ()=>{
         this.props.mountComponent();
@@ -31,7 +30,7 @@ class AppList extends Component{
     }
 }
 const mapStateToProps = state =>({
-    app: state
+    app: state.App
 })
 
 const mapDispatchToProps = {
