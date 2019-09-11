@@ -2,6 +2,7 @@ import actions from './notificationActions'
 
 const {
     NOTIFICATION_SUCCESS,
+    NOTIFICATION_CAT_SUCCESS,
     NOTIFICATION_REQUEST,
     NOTIFICATION_ERROR,
     LOAD_LOCAL_NOTIFICATIONS
@@ -9,13 +10,15 @@ const {
 
 
 const initialState = {
-    list: []
+    list: [],
+    otherData: [],
+    catImages:[]
 
 };
 
 
 export default function notificationReducer(state = initialState, payload) {
-    console.log("Payload Notification", payload)
+    console.log("PAYLOAD", payload.type)
     switch (payload.type) {
         case LOAD_LOCAL_NOTIFICATIONS:
             return {
@@ -28,9 +31,14 @@ export default function notificationReducer(state = initialState, payload) {
             return {
                 ...state,
                list: payload.data,
-               count: payload.data.length
+               count: payload.data.length,
             }
-            break;
+            
+        case NOTIFICATION_CAT_SUCCESS:
+            return {
+                ...state,
+                catImages:[...state.catImages, payload.data] 
+            }
         case NOTIFICATION_ERROR:
             return {
                 ...state,

@@ -6,13 +6,14 @@ import AppInfo from './components/AppList'
 import store from './redux/store'
 import AppList from './components/AppList';
 import PostList from './components/PostList';
+import NotificationList from './components/NotificationList';
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
        <h1>Test</h1>
-        <AppList/>
+        <NotificationList/>
         <PostList/>
       </div>
     </Provider>
