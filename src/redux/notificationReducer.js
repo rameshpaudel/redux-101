@@ -5,6 +5,7 @@ const {
     NOTIFICATION_CAT_SUCCESS,
     NOTIFICATION_REQUEST,
     NOTIFICATION_ERROR,
+    LOGIN_ERROR,
     LOAD_LOCAL_NOTIFICATIONS
 } = actions
 
@@ -18,7 +19,6 @@ const initialState = {
 
 
 export default function notificationReducer(state = initialState, payload) {
-    console.log("PAYLOAD", payload.type)
     switch (payload.type) {
         case LOAD_LOCAL_NOTIFICATIONS:
             return {
@@ -39,6 +39,13 @@ export default function notificationReducer(state = initialState, payload) {
                 ...state,
                 catImages:[...state.catImages, payload.data] 
             }
+
+        case LOGIN_ERROR:{
+            return {
+                ...state,
+                error:"Error while logging in t"
+            }
+        }
         case NOTIFICATION_ERROR:
             return {
                 ...state,

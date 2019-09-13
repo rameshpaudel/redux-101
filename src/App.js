@@ -12,7 +12,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-       <h1>Test</h1>
+        <h1>Test</h1>
         <NotificationList/>
         <PostList/>
       </div>

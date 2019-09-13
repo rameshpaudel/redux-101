@@ -1,7 +1,7 @@
 import { createStore, compose,  applyMiddleware,combineReducers } from 'redux'
 import ReduxThunk from 'redux-thunk'; // no changes here 😀
 
-
+import { logger, validLogin } from './middleware'
 import AppReducer from './appReducer'
 import PostReducer from './postReducer'
 import NotificationReducer from './notificationReducer'
@@ -15,7 +15,13 @@ const reducerLists = combineReducers({
     Notification: NotificationReducer
 })
 
-const store = createStore(reducerLists, applyMiddleware(ReduxThunk  ));
 
+//Middleware
+
+//Middleware are like guards for our application 
+//which intercepts the data that we are injecting to the redux's state tree
+
+
+  const store = createStore(reducerLists, applyMiddleware(logger, validLogin));
 
 export default store;

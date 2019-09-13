@@ -16,7 +16,7 @@ class PostList extends Component{
     constructor(props){
         super(props)
     }
-    componentDidMount(){
+    onClickHandler=()=>{
         this.props.loadPost() // Event is being fired from here
     }
   
@@ -30,7 +30,7 @@ class PostList extends Component{
                })}
                <button onClick={() => this.props.loadNotification() }>Load Notification</button>
                <button onClick={() => this.props.loadNotificationFromRemote() }>AJAXX</button>
-               <h1>Notifications</h1>
+               <h1 onClick={this.onClickHandler}>Notifications</h1>
                {JSON.stringify(this.props.nKeys)}
             </div>
         )
